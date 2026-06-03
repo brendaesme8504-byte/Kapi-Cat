@@ -1,209 +1,416 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK - Catálogo Oficial</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<title>Catálogo Mayoreo y Novedades</title>
+        body {
+            background-color: #fcf9f5;
+            color: #4a3f35;
+            padding-bottom: 60px;
+        }
 
-<style>
+        header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #eee3d8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(184, 151, 126, 0.05);
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+        .logo-container h1 {
+            font-size: 28px;
+            letter-spacing: 6px;
+            color: #b8977e;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
 
-body{
-    background:#f6f6f6;
-}
+        .logo-container p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #a69585;
+            margin-top: 5px;
+        }
 
-header{
-    background:#ff69b4;
-    color:white;
-    text-align:center;
-    padding:25px;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
-header h1{
-    margin-bottom:10px;
-}
+        .category-header {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7d6652;
+            margin: 25px 5px 15px 5px;
+            padding-left: 8px;
+            border-left: 3px solid #b8977e;
+            font-weight: 600;
+        }
 
-.catalogo{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
+        /* Single column vertical scroll layout as requested */
+        .product-list {
+            display: block;
+        }
 
-.producto{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    margin-bottom:25px;
-    box-shadow:0 3px 12px rgba(0,0,0,.12);
-    transition:.3s;
-}
+        .product-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid #f0e6dc;
+            box-shadow: 0 4px 12px rgba(140, 118, 98, 0.04);
+            transition: transform 0.2s;
+        }
 
-.producto:hover{
-    transform:translateY(-3px);
-}
+        .product-card:active {
+            transform: scale(0.99);
+        }
 
-.producto img{
-    width:100%;
-    display:block;
-}
+        .image-wrapper {
+            width: 100%;
+            height: 320px;
+            background-color: #f7f3ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #f2eae1;
+        }
 
-.info{
-    padding:15px;
-}
+        .image-wrapper .placeholder-icon {
+            font-size: 40px;
+            color: #d1c4b6;
+        }
 
-.nombre{
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:8px;
-    color:#333;
-}
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.precio{
-    color:#e91e63;
-    font-size:24px;
-    font-weight:bold;
-}
+        .product-info {
+            padding: 15px 18px;
+            text-align: center;
+        }
 
-.whatsapp{
-    display:inline-block;
-    margin-top:12px;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    padding:10px 15px;
-    border-radius:10px;
-}
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3b3127;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
 
-footer{
-    text-align:center;
-    padding:25px;
-    color:#777;
-}
+        .product-desc {
+            font-size: 12.5px;
+            color: #8c7d70;
+            margin-bottom: 10px;
+            min-height: 18px;
+        }
 
-</style>
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #b8977e;
+        }
+
+        .footer-banner {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 12px;
+            color: #a69585;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <h1>🛍️ Catálogo de Productos</h1>
-    <p>Desliza hacia abajo para ver todo</p>
-</header>
-
-<div class="catalogo">
-
-    <div class="producto">
-        <img src="imagenes/bolsa-cafe.jpg">
-        <div class="info">
-            <div class="nombre">Bolsa Café Grenobil</div>
-            <div class="precio">$200</div>
-            <a class="whatsapp" href="#">Preguntar por WhatsApp</a>
+    <header>
+        <div class="logo-container">
+            <h1>JK</h1>
+            <p>Catálogo Digital</p>
         </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- MOCHILAS Y BOLSAS -->
+        <div class="category-header">🎒 Mochilas y Bolsas</div>
+        <div class="product-list">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👜</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Bolsa Grande Grenobil</div>
+                    <div class="product-desc">Excelente tamaño y acabados premium</div>
+                    <div class="product-price">$210 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👜</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Bolsa de Mano Grenobil con Correa</div>
+                    <div class="product-desc">Práctica, cómoda y muy elegante</div>
+                    <div class="product-price">$200 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🎒</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Mochila Snoopy Futbolista</div>
+                    <div class="product-desc">Edición especial con diseño increíble</div>
+                    <div class="product-price">$250 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🎒</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Mochila Grenobil</div>
+                    <div class="product-desc">Resistente y con compartimentos amplios</div>
+                    <div class="product-price">$180 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">💼</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Mariconera Caballero</div>
+                    <div class="product-desc">Estilo casual ideal para el día a día</div>
+                    <div class="product-price">$200 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">💼</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Mariconera Grenobil</div>
+                    <div class="product-desc">Compacta y con diseño a la moda</div>
+                    <div class="product-price">$150 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👜</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Bolsa Coach Calidad G5</div>
+                    <div class="product-desc">Máxima fidelidad en detalles y texturas</div>
+                    <div class="product-price">$500 pesos</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CARTERAS -->
+        <div class="category-header">👛 Carteras</div>
+        <div class="product-list">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👛</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Cartera Caballero Cucci</div>
+                    <div class="product-desc">Incluye caja y funda oficial</div>
+                    <div class="product-price">$170 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👛</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Cartera Michael Kors</div>
+                    <div class="product-desc">Diseño exclusivo y elegante</div>
+                    <div class="product-price">$90 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👛</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Cartera Love</div>
+                    <div class="product-desc">Detalles románticos y juveniles</div>
+                    <div class="product-price">$50 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">👛</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Cartera de Gatito con Correa</div>
+                    <div class="product-desc">Súper tierna y práctica para llevar</div>
+                    <div class="product-price">$35 pesos</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AUDIO Y TECNOLOGÍA -->
+        <div class="category-header">🎧 Audio y Tecnología</div>
+        <div class="product-list">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🎧</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Auriculares Inalámbricos Tipo AirPods</div>
+                    <div class="product-desc">Conexión bluetooth inmediata y gran audio</div>
+                    <div class="product-price">$200 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🔌</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Audífonos Capibara Alámbricos</div>
+                    <div class="product-desc">Diseño súper lindo y sonido claro</div>
+                    <div class="product-price">$50 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">📱</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Soporte para Celular Capibara</div>
+                    <div class="product-desc">El accesorio perfecto para tu escritorio</div>
+                    <div class="product-price">$30 pesos</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TERMOS Y HOGAR -->
+        <div class="category-header">🥤 Termos, Vasos y Hogar</div>
+        <div class="product-list">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🌡️</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Termo Dúo / Termo Chico Digital</div>
+                    <div class="product-desc">Pantalla inteligente con sensor de temperatura</div>
+                    <div class="product-price">$350 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">✨</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Vaso Infantil con Luces</div>
+                    <div class="product-desc">Divertido y seguro para los pequeños</div>
+                    <div class="product-price">$110 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🍱</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Lonchera Térmica</div>
+                    <div class="product-desc">Conserva tus alimentos frescos por horas</div>
+                    <div class="product-price">$35 pesos</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ROPA Y CALZADO -->
+        <div class="category-header">👟 Ropa y Calzado</div>
+        <div class="product-list">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🩴</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Sandalias Caballero</div>
+                    <div class="product-desc">Medidas disponibles: 43 y 44</div>
+                    <div class="product-price">$200 pesos</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">🧢</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Cachuchas</div>
+                    <div class="product-desc">Varios modelos y colores ajustables</div>
+                    <div class="product-price">$90 pesos</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAPELERÍA -->
+        <div class="category-header">✏️ Papelería</div>
+        <div class="product-list">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <span class="placeholder-icon">✏️</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Lápices con Estuche</div>
+                    <div class="product-desc">Set completo que contiene 24 piezas</div>
+                    <div class="product-price">$40 pesos</div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="producto">
-        <img src="imagenes/coach-labios.jpg">
-        <div class="info">
-            <div class="nombre">Bolsa Coach Labios</div>
-            <div class="precio">$500</div>
-        </div>
+    <div class="footer-banner">
+        <p>© 2026 JK Tienda Digital. Todos los derechos reservados.</p>
     </div>
-
-    <div class="producto">
-        <img src="imagenes/audifonos-oso.jpg">
-        <div class="info">
-            <div class="nombre">Audífonos Oso</div>
-            <div class="precio">$50</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/cartera-love.jpg">
-        <div class="info">
-            <div class="nombre">Cartera LOVE</div>
-            <div class="precio">$50</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/bolsa-crema.jpg">
-        <div class="info">
-            <div class="nombre">Bolsa Crema con Correa</div>
-            <div class="precio">$150</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/mochila-grenobil.jpg">
-        <div class="info">
-            <div class="nombre">Mochila Grenobil</div>
-            <div class="precio">$180</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/coach-caballero.jpg">
-        <div class="info">
-            <div class="nombre">Bolsa Coach Caballero</div>
-            <div class="precio">$200</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/lapices.jpg">
-        <div class="info">
-            <div class="nombre">Lápices de Colores</div>
-            <div class="precio">$40</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/cartera-mk.jpg">
-        <div class="info">
-            <div class="nombre">Cartera Michael Kors</div>
-            <div class="precio">$90</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/mochila-snoopy.jpg">
-        <div class="info">
-            <div class="nombre">Mochila Snoopy</div>
-            <div class="precio">$250</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/termo-duo.jpg">
-        <div class="info">
-            <div class="nombre">Termo Dúo</div>
-            <div class="precio">$350</div>
-        </div>
-    </div>
-
-    <div class="producto">
-        <img src="imagenes/airpods.jpg">
-        <div class="info">
-            <div class="nombre">AirPods Pro</div>
-            <div class="precio">$200</div>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-✨ Gracias por visitar nuestro catálogo ✨
-</footer>
 
 </body>
 </html>
