@@ -1,6 +1,104 @@
-<!-- PRODUCTO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JK Catálogo</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f7f2f2;
+}
+
+header{
+    background:white;
+    text-align:center;
+    padding:30px 20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.logo-img{
+    width:180px;
+    max-width:90%;
+    margin-bottom:15px;
+}
+
+header h1{
+    color:#c18c7b;
+    margin-bottom:10px;
+}
+
+header p{
+    color:#666;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+    padding:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.info{
+    padding:15px;
+}
+
+.nombre{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.precio{
+    font-size:24px;
+    font-weight:bold;
+    color:#c18c7b;
+}
+
+.detalle{
+    margin-top:6px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" alt="JK Catálogo" class="logo-img">
+    <h1>JK Catálogo</h1>
+    <p>Novedades y tendencias para ti ✨</p>
+</header>
+
+<div class="grid">
+
 <div class="card">
-    <img src="imagenes/audifonos-capibara.jpg" alt="Audífonos Capibara">
+    <img src="audifonos-capibara.jpg" alt="Audífonos Capibara">
     <div class="info">
         <div class="nombre">Audífonos Capibara Alámbricos</div>
         <div class="precio">$50</div>
@@ -8,7 +106,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/airpods.jpg" alt="AirPods">
+    <img src="airpods.jpg" alt="AirPods">
     <div class="info">
         <div class="nombre">Auriculares Inalámbricos tipo AirPods</div>
         <div class="precio">$200</div>
@@ -16,7 +114,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/soporte-capibara.jpg" alt="Soporte Capibara">
+    <img src="soporte-capibara.jpg" alt="Soporte Capibara">
     <div class="info">
         <div class="nombre">Soporte para Celular Capibara</div>
         <div class="precio">$30</div>
@@ -24,7 +122,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/mariconera-grenobil.jpg" alt="Mariconera Grenobil">
+    <img src="mariconera-grenobil.jpg" alt="Mariconera Grenobil">
     <div class="info">
         <div class="nombre">Mariconera Grenobil</div>
         <div class="precio">$150</div>
@@ -32,7 +130,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/mochila-grenobil.jpg" alt="Mochila Grenobil">
+    <img src="mochila-grenobil.jpg" alt="Mochila Grenobil">
     <div class="info">
         <div class="nombre">Mochila Grenobil</div>
         <div class="precio">$180</div>
@@ -40,7 +138,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/cartera-love.jpg" alt="Cartera Love">
+    <img src="cartera-love.jpg" alt="Cartera Love">
     <div class="info">
         <div class="nombre">Cartera Love</div>
         <div class="precio">$50</div>
@@ -48,7 +146,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/cartera-michael-kors.jpg" alt="Cartera Michael Kors">
+    <img src="cartera-michael-kors.jpg" alt="Michael Kors">
     <div class="info">
         <div class="nombre">Cartera Michael Kors</div>
         <div class="precio">$90</div>
@@ -56,7 +154,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/mariconera-caballero.jpg" alt="Mariconera Caballero">
+    <img src="mariconera-caballero.jpg" alt="Mariconera Caballero">
     <div class="info">
         <div class="nombre">Mariconera Caballero</div>
         <div class="precio">$200</div>
@@ -64,16 +162,16 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/lapices-estuche.jpg" alt="Lápices">
+    <img src="lapices-estuche.jpg" alt="Lápices">
     <div class="info">
         <div class="nombre">Lápices con Estuche</div>
         <div class="precio">$40</div>
-        <div class="detalle">Contiene 24 piezas</div>
+        <div class="detalle">24 piezas</div>
     </div>
 </div>
 
 <div class="card">
-    <img src="imagenes/mochila-snoopy.jpg" alt="Mochila Snoopy">
+    <img src="mochila-snoopy.jpg" alt="Mochila Snoopy">
     <div class="info">
         <div class="nombre">Mochila Snoopy Futbolista</div>
         <div class="precio">$250</div>
@@ -81,7 +179,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/sandalias-caballero.jpg" alt="Sandalias">
+    <img src="sandalias-caballero.jpg" alt="Sandalias">
     <div class="info">
         <div class="nombre">Sandalias Caballero</div>
         <div class="precio">$200</div>
@@ -90,7 +188,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/vaso-luces.jpg" alt="Vaso Infantil">
+    <img src="vaso-luces.jpg" alt="Vaso Infantil">
     <div class="info">
         <div class="nombre">Vaso Infantil con Luces</div>
         <div class="precio">$110</div>
@@ -98,7 +196,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/termo-duo.jpg" alt="Termo Duo">
+    <img src="termo-duo.jpg" alt="Termo Duo">
     <div class="info">
         <div class="nombre">Termo Duo + Termo Chico Digital</div>
         <div class="precio">$350</div>
@@ -106,7 +204,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/bolsa-grande-grenobil.jpg" alt="Bolsa Grenobil">
+    <img src="bolsa-grande-grenobil.jpg" alt="Bolsa Grenobil">
     <div class="info">
         <div class="nombre">Bolsa Grande Grenobil</div>
         <div class="precio">$210</div>
@@ -114,7 +212,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/cartera-gatito.jpg" alt="Cartera Gatito">
+    <img src="cartera-gatito.jpg" alt="Cartera Gatito">
     <div class="info">
         <div class="nombre">Cartera de Gatito con Correa</div>
         <div class="precio">$35</div>
@@ -122,7 +220,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/cachuchas.jpg" alt="Cachuchas">
+    <img src="cachuchas.jpg" alt="Cachuchas">
     <div class="info">
         <div class="nombre">Cachuchas</div>
         <div class="precio">$90</div>
@@ -130,7 +228,7 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/cartera-cucci.jpg" alt="Cartera Cucci">
+    <img src="cartera-cucci.jpg" alt="Cartera Cucci">
     <div class="info">
         <div class="nombre">Cartera Caballero Cucci</div>
         <div class="precio">$170</div>
@@ -139,9 +237,14 @@
 </div>
 
 <div class="card">
-    <img src="imagenes/coach-g5.jpg" alt="Bolsa Coach">
+    <img src="coach-g5.jpg" alt="Coach G5">
     <div class="info">
         <div class="nombre">Bolsa Coach Calidad G5</div>
         <div class="precio">$500</div>
     </div>
 </div>
+
+</div>
+
+</body>
+</html>
